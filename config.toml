@@ -12,4 +12,10 @@ highlight_code = true
 build_search_index = true
 
 [extra]
-# Put all your custom variables here
+site_name = "DogFood"
+menu_items = [
+  {url = "$BASE_URL", name = "Home"},
+  {url = "$BASE_URL/categories", name = "Categories"},
+  {url = "$BASE_URL/tags", name = "Tags"},
+  {url = "$BASE_URL/about", name = "About"},
+]

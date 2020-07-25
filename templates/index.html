@@ -23,6 +23,21 @@
 
     <body class="">
 
+      <header id="header">
+        <div class="logo"><a href="{{ config.base_url }}">{{ config.extra.site_name }}</a></div>
+        <nav class="menu">
+            <ul>
+                {% for item in config.extra.menu_items %}
+                    <li>
+                        <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}">
+                            {{ item.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+
         <div class="content container">
             {% block content %}
                 <div class="posts">
