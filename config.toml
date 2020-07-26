@@ -11,6 +11,7 @@ highlight_code = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
+
 [extra]
 site_name = "DogFood"
 menu_items = [
@@ -19,3 +20,4 @@ menu_items = [
   {url = "$BASE_URL/tags", name = "Tags"},
   {url = "$BASE_URL/about", name = "About"},
 ]
+author = "CSUwangj"
