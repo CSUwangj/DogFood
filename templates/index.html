@@ -54,9 +54,20 @@
           </div>
         {% endblock content %}
 
-        <aside>
-          
-        </aside>
+        {% block sidebar %}
+          <aside>
+            <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
+              {% if config.extra.avatar %}
+              <img class="site-author-image" itemprop="image"
+                src="{{ url_for(name=config.extra.avatar) }}"
+                alt="{{ config.extra.author }}" />
+              {% endif %}
+              <p class="site-author-name">{{ config.extra.author }}</p>
+              <p class="site-author-quote">{{ config.extra.quote }}</p>
+            </div>
+          </aside>
+        {% endblock sidebar %}
+
       </main>
 
       <footer>

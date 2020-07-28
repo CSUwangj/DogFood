@@ -21,3 +21,4 @@ menu_items = [
   {url = "$BASE_URL/about", name = "About"},
 ]
 author = "CSUwangj"
+quote = "Just keep in mind that hacking is very rarely in a sequence."
