@@ -11,6 +11,10 @@ highlight_code = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
+generate_feed = true
+
+feed_filename = "atom.xml"
+
 
 [extra]
 site_name = "DogFood"
@@ -22,3 +26,6 @@ menu_items = [
 ]
 author = "CSUwangj"
 quote = "Just keep in mind that hacking is very rarely in a sequence."
+links = [
+  {name = "Author of DogFood", url = "CSUwangj.github.io/"},
+]
