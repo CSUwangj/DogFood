@@ -50,6 +50,12 @@
                   </a>
                 </h1>
                 <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
+                {% if page.summary %}
+                  <div class="content post-summary">
+                    {{ page.summary | markdown | safe }}
+                  </div>
+                {% endif %}
+                <a href="{{ page.permalink }}#continue-reading">Read More</a>
               </section>
             {% endfor %}
           </div>
