@@ -27,5 +27,5 @@ menu_items = [
 author = "CSUwangj"
 quote = "Just keep in mind that hacking is very rarely in a sequence."
 links = [
-  {name = "Author of DogFood", url = "CSUwangj.github.io/"},
+  {name = "Author of DogFood", url = "https://CSUwangj.github.io/"},
 ]

@@ -68,6 +68,16 @@
             <div class="feed-link">
               <a href="atom.xml">RSS</a>
             </div>
+            <div class="links-of-author">
+              {# TODO: Add links of author #}
+            </div>
+            <div class="links-of-blogroll">
+              <ul>
+                {% for link in config.extra.links %}
+                  <a href="{{ link.url }}">{{ link.name }}</a>
+                {% endfor %}
+              </ul>
+            </div>
           </aside>
         {% endblock sidebar %}
 
