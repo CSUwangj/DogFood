@@ -29,3 +29,6 @@ quote = "Just keep in mind that hacking is very rarely in a sequence."
 links = [
   {name = "Author of DogFood", url = "https://CSUwangj.github.io/"},
 ]
+author_links = [
+  {name = "Github", url = "https://github.com/CSUwangj", favion = "fab fa-github"}
+]

@@ -11,6 +11,7 @@
       <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
       <!-- CSS -->
+      <link rel="stylesheet" href="{{ get_url(path="fontawesome.min.css", trailing_slash=false) }}">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
       {% if config.generate_feed %}
@@ -69,7 +70,11 @@
               <a href="atom.xml">RSS</a>
             </div>
             <div class="links-of-author">
-              {# TODO: Add links of author #}
+              {% for link in config.extra.author_links %}
+                <a href="{{ link.url }}" title="{{ link.name }}">
+                  <i class="{{ link.favion }}"></i>
+                </a>
+              {% endfor %}
             </div>
             <div class="links-of-blogroll">
               <ul>
