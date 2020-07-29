@@ -33,3 +33,7 @@ footer {
 header {
   @extend %margin-left;
 }
+
+a.author-link {
+  display: inline;
+}
