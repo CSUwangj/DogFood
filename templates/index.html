@@ -13,6 +13,7 @@
       <!-- CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="{{ get_url(path="sidebar.css", trailing_slash=false) }}">
+      <link rel="stylesheet" href="{{ get_url(path="header.css", trailing_slash=false) }}">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
       {% if config.generate_feed %}
@@ -28,15 +29,11 @@
       <header id="header">
         <div class="logo"><a href="{{ config.base_url }}">{{ config.extra.site_name }}</a></div>
         <nav class="menu">
-          <ul>
             {% for item in config.extra.menu_items %}
-              <li>
-                <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}">
+                <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}" class="nav-item">
                   {{ item.name }}
                 </a>
-              </li>
             {% endfor %}
-          </ul>
         </nav>
       </header>
 
