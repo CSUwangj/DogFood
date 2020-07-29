@@ -1,3 +1,9 @@
+%margin-left {
+  transition: margin-left .5s;
+  padding: 16px;
+  margin-left: 250px;
+}
+
 .sidebar {
   height: 100%;
   width: 250px;
@@ -17,7 +23,13 @@
 }
 
 main {
-  transition: margin-left .5s;
-  padding: 16px;
-  margin-left: 250px;
+  @extend %margin-left;
+}
+
+footer {
+  @extend %margin-left;
+}
+
+header {
+  @extend %margin-left;
 }
