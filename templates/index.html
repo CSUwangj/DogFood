@@ -73,7 +73,11 @@
               <p class="site-author-quote">{{ config.extra.quote }}</p>
             </div>
             <div class="feed-link">
-              <a href="atom.xml">RSS</a>
+              {% if config.generate_feed %}
+                <a rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+                  RSS
+                </a>
+              {% endif %}
             </div>
             <div class="links-of-author">
               {% for link in config.extra.author_links %}
