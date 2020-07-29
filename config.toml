@@ -30,5 +30,5 @@ links = [
   {name = "Author of DogFood", url = "https://CSUwangj.github.io/"},
 ]
 author_links = [
-  {name = "Github", url = "https://github.com/CSUwangj", favion = "fab fa-github"}
+  {name = "Github", url = "https://github.com/CSUwangj", favion = "fa fw fa-github"}
 ]
