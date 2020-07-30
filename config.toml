@@ -13,8 +13,8 @@ build_search_index = true
 generate_feed = true
 feed_filename = "atom.xml"
 taxonomies = [
-    # {name = "categories", rss = true},
-    {name = "tags", rss = true},
+  {name = "categories", rss = true},
+  {name = "tags", rss = true},
 ]
 
 

@@ -4,9 +4,9 @@
   <div class="taxonomy">
     <h2>{{ term.name }}</h2>
     {% for page in term.pages %}
-      <div class="tags">
-        <span class="tag-item">{{ page.date | date(format="%F") }}</span>
-        <span class="tag-item-title">
+      <div class="categories">
+        <span class="category-item">{{ page.date | date(format="%F") }}</span>
+        <span class="category-item-title">
           <a href="{{ page.permalink }}">{{ page.title }}</a>
         </span>
       </div>
