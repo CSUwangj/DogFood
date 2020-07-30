@@ -5,7 +5,7 @@
         <div class="taxonomies-title">
             {{ terms | length }} tags in total
         </div>
-        <div class="taxonomies-items">
+        <div class="tag-items">
             {% for tag in terms %}
                 <a href="{{ tag.permalink }}">
                     {{ tag.name }}
