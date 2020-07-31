@@ -84,11 +84,9 @@
               {% endfor %}
             </div>
             <div class="links-of-blogroll">
-              <ul>
-                {% for link in config.extra.links %}
-                  <a href="{{ link.url }}">{{ link.name }}</a>
-                {% endfor %}
-              </ul>
+              {% for link in config.extra.links %}
+                <a href="{{ link.url }}">{{ link.name }}</a>
+              {% endfor %}
             </div>
           </aside>
         {% endblock sidebar %}

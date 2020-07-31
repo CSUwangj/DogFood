@@ -14,6 +14,7 @@
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+  text-align: center;
 }
 
 .sidebar a {
@@ -36,4 +37,8 @@ header {
 
 a.author-link {
   display: inline;
+}
+
+.links-of-blogroll {
+  margin-top: 20px;
 }
