@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block content %}
+  {% if config.extra.avatar %}
+  <img class="about-author-image" itemprop="image"
+    src="{{ url_for(name=config.extra.avatar) }}"
+    alt="{{ config.extra.author }}" />
+  {% endif %}
+  <p class="about-author-name">{{ config.extra.author }}</p>
+  <p class="about-author-quote">{{ config.extra.quote }}</p>
+  <div class="about">
+    {{ page.content | safe }}
+  </div>
+{% endblock content %}
