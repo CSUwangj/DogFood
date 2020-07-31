@@ -37,3 +37,4 @@ author_links = [
   {name = "Github", url = "https://github.com/CSUwangj", favion = "fa fw fa-github"},
 ]
 copyright_year = "2018-2020"
+avatar = "img/avatar.png"

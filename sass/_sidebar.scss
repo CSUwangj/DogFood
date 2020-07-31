@@ -17,6 +17,20 @@
   text-align: center;
 }
 
+.site-author-image {
+  border-radius: 100%;
+}
+
+.site-author-image {
+  display: block;
+  margin: 0 auto;
+  padding: 2px;
+  max-width: 96px;
+  height: auto;
+  border: 2px solid #333;
+  opacity: 1;
+}
+
 .sidebar a {
   text-decoration: none;
   display: block;
