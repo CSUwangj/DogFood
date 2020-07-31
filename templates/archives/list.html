@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+  {% for archive in terms %}
+    {% for year, posts in archive.pages | group_by(attribute="year") %}
+    <h2>{{ year }}</h2>
+
+    <ul>
+      {% for post in posts %}
+        <li>
+          <time datetime="{{ post.date }}">{{ post.date }}</time>
+          <a href="{{ post.permalink }}"> {{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  {% endfor %}
+{% endblock content %}

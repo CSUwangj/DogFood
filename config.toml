@@ -15,6 +15,7 @@ feed_filename = "atom.xml"
 taxonomies = [
   {name = "categories", rss = true},
   {name = "tags", rss = true},
+  {name = "archives", rss = true},
 ]
 
 
@@ -25,6 +26,7 @@ menu_items = [
   {url = "$BASE_URL/categories", name = "Categories"},
   {url = "$BASE_URL/tags", name = "Tags"},
   {url = "$BASE_URL/about", name = "About"},
+  {url = "$BASE_URL/archives", name = "Archives"},
 ]
 author = "CSUwangj"
 quote = "Just keep in mind that hacking is very rarely in a sequence."
