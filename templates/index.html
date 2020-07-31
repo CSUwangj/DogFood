@@ -63,7 +63,7 @@
             <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
               {% if config.extra.avatar %}
               <img class="site-author-image" itemprop="image"
-                src="{{ url_for(name=config.extra.avatar) }}"
+                src="{{ get_url(path=config.extra.avatar) }}"
                 alt="{{ config.extra.author }}" />
               {% endif %}
               <p class="site-author-name">{{ config.extra.author }}</p>

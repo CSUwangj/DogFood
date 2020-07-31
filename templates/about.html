@@ -3,7 +3,7 @@
 {% block content %}
   {% if config.extra.avatar %}
   <img class="about-author-image" itemprop="image"
-    src="{{ url_for(name=config.extra.avatar) }}"
+    src="{{ get_url(path=config.extra.avatar) }}"
     alt="{{ config.extra.author }}" />
   {% endif %}
   <p class="about-author-name">{{ config.extra.author }}</p>
