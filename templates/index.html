@@ -14,6 +14,7 @@
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=false) }}">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+      <script type="text/javascript" charset="utf-8" src="{{ get_url(path="js/sidebar.js", trailing_slash=false) }}"></script>
 
       {% if config.generate_feed %}
         <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
@@ -25,7 +26,7 @@
 
     <body class="">
 
-      <header id="header">
+      <header name="header">
         <div class="logo"><a href="{{ config.base_url }}">{{ config.extra.site_name }}</a></div>
         <nav class="menu">
             {% for item in config.extra.menu_items %}
@@ -36,7 +37,7 @@
         </nav>
       </header>
 
-      <main class="content container">
+      <main class="content container" name="main">
         {% block content %}
           <div class="posts">
             {% for page in section.pages | reverse %}
@@ -59,8 +60,8 @@
         {% endblock content %}
 
         {% block sidebar %}
-          <button class="sidebar-toggle">O</button>
-          <aside class="sidebar">
+          <button class="sidebar-toggle" onclick="openSidebar()">O</button>
+          <aside class="sidebar" name="sidebar">
             <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
               {% if config.extra.avatar %}
               <img class="site-author-image" itemprop="image"
@@ -94,7 +95,7 @@
 
       </main>
 
-      <footer>
+      <footer name="footer">
         <div class="copyright">
           <span item="copyrightYear">© {{ config.extra.copyright_year }}</span>
           <span class="author">{{ config.extra.author }}</span>
