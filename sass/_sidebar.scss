@@ -58,8 +58,20 @@ button.sidebar-toggle {
   left: 30px;
   bottom: 45px;
   padding: 5px;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
   z-index: 1050;
   cursor: pointer;
+  border: 0;
+  background-color: #000;
+  color: #FFF;
+  font-weight: bold;
+  border-radius: 6px;
+  &:hover {
+    background-color: #333;
+  }
+  &:focus {
+    outline: none;
+  }
 }
