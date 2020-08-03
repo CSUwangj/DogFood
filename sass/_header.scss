@@ -1,20 +1,17 @@
-nav ul { 
-  list-style-type: none; 
-}
-
 header{
   div {
     display: inline-block;
   }
+  nav {
+    ul { 
+      list-style-type: none; 
+    }
+    li {
+      float: left;
+    }
+    display: inline-block;
+  }
   background-color: #282828;
-}
-
-nav {
-  display: inline-block;
-}
-
-li {
-  float: left;
 }
 
 a.nav-item {
