@@ -1,6 +1,6 @@
 %margin-left {
   transition: margin-left .5s;
-  padding: 16px;
+  padding: 16px 0px;
   margin-left: 0;
 }
 
@@ -15,6 +15,7 @@
   transition: 0.5s;
   padding-top: 60px;
   text-align: center;
+  background-color: #b8b8b8;
 }
 
 .site-author-image {
@@ -57,7 +58,6 @@ button.sidebar-toggle {
   position: fixed;
   left: 30px;
   bottom: 45px;
-  padding: 5px;
   width: 28px;
   height: 28px;
   font-size: 16px;
