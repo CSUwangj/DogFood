@@ -2,7 +2,8 @@ footer {
   position: relative;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: calc(100% - 32px);
   text-align: center;
   background-color: #282828;
+  padding: 16px;
 }

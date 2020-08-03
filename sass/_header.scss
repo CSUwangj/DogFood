@@ -12,6 +12,8 @@ header{
     display: inline-block;
   }
   background-color: #282828;
+  width: calc(100% - 32px);
+  padding: 16px
 }
 
 a.nav-item {
