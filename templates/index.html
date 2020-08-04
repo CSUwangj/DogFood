@@ -28,14 +28,16 @@
       
       {% block header %}
         <header name="header">
-          <div class="logo"><a href="{{ config.base_url }}">{{ config.extra.site_name }}</a></div>
-          <nav class="menu">
-            {% for item in config.extra.menu_items %}
-              <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}" class="nav-item">
-                {{ item.name }}
-              </a>
-            {% endfor %}
-          </nav>
+          <div>
+            <div class="logo"><a href="{{ config.base_url }}">{{ config.extra.site_name }}</a></div>
+            <nav class="menu">
+              {% for item in config.extra.menu_items %}
+                <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}" class="nav-item">
+                  {{ item.name }}
+                </a>
+              {% endfor %}
+            </nav>
+          </div>
         </header>
       {% endblock %}
 
