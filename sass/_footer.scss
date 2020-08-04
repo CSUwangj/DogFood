@@ -6,4 +6,11 @@ footer {
   text-align: center;
   background-color: #282828;
   padding: 16px;
+  color: #b8b8b8b8;
+  a, a:visited, a:hover, a:active {
+    text-decoration: underline;
+  }
+  a:hover, a:active {
+    color: #f8f8f8;
+  }
 }
