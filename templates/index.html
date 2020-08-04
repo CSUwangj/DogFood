@@ -11,7 +11,7 @@
       <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
       <!-- CSS -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="{{ get_url(path="css/lib/font-awesome.min.css", trailing_slash=false) }}">
       <link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=false) }}">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
       <script type="text/javascript" charset="utf-8" src="{{ get_url(path="js/sidebar.js", trailing_slash=false) }}"></script>
