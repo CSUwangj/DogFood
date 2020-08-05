@@ -14,6 +14,16 @@ main {
   display: grid;
   align-items: center;
   justify-content: center;
+  a {
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.5s ease;
+  }
+  a:hover, a:active {
+    color: #000;
+    text-decoration-color: #000;
+    background: rgba(255,255,255,0.9)
+  }
 }
 
 .content-wrapper {
@@ -21,7 +31,7 @@ main {
   border-radius: 30px;
   margin-top: 60px;
   padding: 30px 30px 30px 30px;
-  background: rgba(255,255,255,0.8) none repeat scroll;
+  background: rgba(255,255,255,0.7) none repeat scroll;
   color: #585858;
 }
 
