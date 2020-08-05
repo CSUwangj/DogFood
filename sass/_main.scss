@@ -24,3 +24,23 @@ main {
   background: rgba(255,255,255,0.8) none repeat scroll;
   color: #585858;
 }
+
+.taxonomies-title { 
+  text-align: center;
+}
+
+.taxonomies-items {
+  a {
+    margin: 8px 0px 8px 8px;
+    font-size: 18px;
+    text-decoration: underline;
+    text-decoration-color: #888;
+  }
+  a:hover, a:active {
+    color: #000;
+    text-decoration-color: #000;
+  }
+  span {
+    color: #999;
+  }
+}

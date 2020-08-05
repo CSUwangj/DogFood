@@ -2,15 +2,13 @@
 
 {% block content %}
   <div class="taxonomies">
+    <h1 class="taxonomies-title">All Tags</h1>
     <div class="taxonomies-title">
-      {{ terms | length }} tags in total
+      There are {{ terms | length }} tag(s) in total
     </div>
-    <div class="tag-items">
+    <div class="taxonomies-items">
       {% for tag in terms %}
-        <a href="{{ tag.permalink }}">
-          {{ tag.name }}
-          <span class="count">{{ tag.pages | length }}</span>
-        </a>
+        <a href="{{ tag.permalink }}">{{ tag.name }}</a><span class="count">({{ tag.pages | length }})</span>
       {% endfor %}
     </div>
   </div>

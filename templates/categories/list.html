@@ -2,16 +2,18 @@
 
 {% block content %}
   <div class="taxonomies">
+    <h1 class="taxonomies-title">All Categories</h1>
     <div class="taxonomies-title">
-      {{ terms | length }} categories in total
+      There are {{ terms | length }} category(s) in total
     </div>
-    <div class="category-items">
-      {% for category in terms %}
-        <a href="{{ category.permalink }}">
-          {{ category.name }}
-          <span class="count">{{ category.pages | length }}</span>
-        </a>
-      {% endfor %}
+    <div class="taxonomies-items">
+      <ul>
+        {% for category in terms %}
+        <li>
+          <a href="{{ category.permalink }}">{{ category.name }}</a><span class="count">({{ category.pages | length }})</span>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
   </div>
 {% endblock content %}
