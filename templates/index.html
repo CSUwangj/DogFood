@@ -24,7 +24,7 @@
       {% endblock extra_head %}
     </head>
 
-    <body class="">
+    <body>
       
       {% block header %}
         <header name="header">
@@ -42,8 +42,8 @@
       {% endblock %}
 
       <main class="content container" name="main">
-        {% block content %}
-          <div class="posts">
+        <div class="content-wrapper">
+          {% block content %}
             {% for page in section.pages | reverse %}
               <section class="post">
                 <h1 class="post-title">
@@ -60,8 +60,8 @@
                 <a href="{{ page.permalink }}#continue-reading">Read More</a>
               </section>
             {% endfor %}
-          </div>
-        {% endblock content %}
+          {% endblock content %}
+        </div>
 
         {% block sidebar %}
           <button class="sidebar-toggle" onclick="openSidebar()">O</button>

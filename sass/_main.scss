@@ -11,4 +11,16 @@ body {
 
 main {
   padding: 16px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-wrapper {
+  width: 700px;
+  border-radius: 30px;
+  margin-top: 60px;
+  padding: 30px 30px 30px 30px;
+  background: rgba(255,255,255,0.8) none repeat scroll;
+  color: #585858;
 }
