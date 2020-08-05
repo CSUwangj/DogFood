@@ -47,7 +47,7 @@
             {% for page in section.pages | reverse %}
               <section class="post">
                 <h1 class="post-title">
-                  <a href="{{ page.permalink }}">
+                  <a href="{{ page.permalink }}" class="post-title">
                     {{ page.title }}
                   </a>
                 </h1>
@@ -57,7 +57,7 @@
                     {{ page.summary | markdown | safe }}
                   </div>
                 {% endif %}
-                <a href="{{ page.permalink }}#continue-reading">Read More</a>
+                <a href="{{ page.permalink }}#continue-reading" class="readmore">Read More</a>
               </section>
             {% endfor %}
           {% endblock content %}

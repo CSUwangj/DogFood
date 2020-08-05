@@ -14,15 +14,24 @@ main {
   display: grid;
   align-items: center;
   justify-content: center;
-  a {
+  a.readmore {
     padding: 4px;
     border-radius: 4px;
     transition: all 0.5s ease;
   }
-  a:hover, a:active {
+  .readmore:hover, .readmore:active {
     color: #000;
     text-decoration-color: #000;
-    background: rgba(255,255,255,0.9)
+    background: rgba(255,255,255,0.9);
+  }
+  a.post-title {
+    background: linear-gradient(#333,#333) center bottom; /*OR bottom right OR bottom left*/
+    background-size: 0% 2px; /*width:0% height:2px*/
+    background-repeat:no-repeat; /* Don't repeat !!*/
+    transition: all 0.45s;
+  }
+  a.post-title:hover, a.post-title:active {
+    background-size: 100% 2px;
   }
 }
 
