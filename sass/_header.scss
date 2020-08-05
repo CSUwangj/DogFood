@@ -16,10 +16,10 @@ header{
     nav {
       a {
         display: inline-block;
-        width: 80px;
+        width: 96px;
         font-size: 14px;
         transition: all 0.7s ease;
-        vertical-align: middle;
+        padding: 8px 0px;
         border-radius: 4px;
       }
       a:hover, a:active {
@@ -38,8 +38,4 @@ header{
   left: 0;
   bottom: 0;
   text-align: center;
-}
-
-a.nav-item {
-  padding: 8px;
 }
