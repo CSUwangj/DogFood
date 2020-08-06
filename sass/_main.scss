@@ -16,6 +16,7 @@ main {
   display: grid;
   align-items: center;
   justify-content: center;
+  min-height: calc(100vh - 220px);
   a.readmore {
     padding: 4px;
     border-radius: 4px;

@@ -44,7 +44,7 @@
       <main class="content container" name="main">
         <div class="content-wrapper">
           {% block content %}
-            {% for page in section.pages | reverse %}
+            {% for page in section.pages %}
               <section class="post">
                 <h1 class="post-title">
                   <a href="{{ page.permalink }}" class="post-title">
