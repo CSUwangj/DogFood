@@ -44,7 +44,7 @@
       <main class="content container" name="main">
         <div class="content-wrapper">
           {% block content %}
-            {% for page in section.pages %}
+            {% for page in paginator.pages %}
               <section class="post">
                 <h1 class="post-title">
                   <a href="{{ page.permalink }}" class="post-title">
@@ -60,6 +60,14 @@
                 <a href="{{ page.permalink }}#continue-reading" class="readmore">Read More</a>
               </section>
             {% endfor %}
+            <nav class="pagination">
+              {% if paginator.previous %}
+                <a href="{{ paginator.previous }}">< Previous</a>
+              {% endif %}
+              {% if paginator.next %}
+                <a href="{{ paginator.next }}">Next ></Next></a>
+              {% endif %}
+            </nav>
           {% endblock content %}
         </div>
 
