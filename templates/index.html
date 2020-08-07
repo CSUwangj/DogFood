@@ -64,7 +64,7 @@
               {% if paginator.previous %}
                 <a href="{{ paginator.previous }}">< Previous</a>
               {% endif %}
-              {% for index in range(start=1,end=paginator.number_pagers) %}
+              {% for index in range(start=1,end=paginator.number_pagers+1) %}
                 {% if index == 1 %}
                   <a href="/">1</a>
                 {% else %}
