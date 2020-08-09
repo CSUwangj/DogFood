@@ -62,25 +62,27 @@
             {% endfor %}
             <nav class="pagination">
               {% if paginator.previous %}
-                <a href="{{ paginator.previous }}">< Previous</a>
+                <a class="other_index unselectable" href="{{ paginator.previous }}">< Previous</a>
               {% endif %}
-              {% for index in range(start=1,end=paginator.number_pagers+1) %}
-                {% if index == paginator.current_index %}
-                  {% if index == 1 %}
-                    <span class="current_index unselectable" href="/">1</span>
+              <div class="page-nav">
+                {% for index in range(start=1,end=paginator.number_pagers+1) %}
+                  {% if index == paginator.current_index %}
+                    {% if index == 1 %}
+                      <span class="current_index unselectable" href="/">1</span>
+                    {% else %}
+                      <span class="current_index unselectable" href="/page/{{ index }}">{{ index }}</span>
+                    {% endif %}
                   {% else %}
-                    <span class="current_index unselectable" href="/page/{{ index }}">{{ index }}</span>
+                    {% if index == 1 %}
+                      <a class="other_index unselectable" href="/">1</a>
+                    {% else %}
+                      <a class="other_index unselectable" href="/page/{{ index }}">{{ index }}</a>
+                    {% endif %}
                   {% endif %}
-                {% else %}
-                  {% if index == 1 %}
-                    <a class="other_index unselectable" href="/">1</a>
-                  {% else %}
-                    <a class="other_index unselectable" href="/page/{{ index }}">{{ index }}</a>
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
+                {% endfor %}
+              </div>
               {% if paginator.next %}
-                <a href="{{ paginator.next }}">Next ></Next></a>
+                <a class="other_index unselectable" href="{{ paginator.next }}">Next ></Next></a>
               {% endif %}
             </nav>
           {% endblock content %}
