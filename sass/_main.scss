@@ -48,14 +48,22 @@ main {
     vertical-align: middle;
     margin-top: 20px;
     .left {
+      width: 70px;
       float: left;
+      text-align: center;
     }
     .center {
       margin: 0 auto;
       padding: 4px;
     }
     .right {
+      width: 70px;
       float: right;
+      text-align: center;
+    }
+    .empty {
+      padding: 4px;
+      width: 70px;
     }
   }
 }
