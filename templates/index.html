@@ -62,9 +62,9 @@
             {% endfor %}
             <nav class="pagination">
               {% if paginator.previous %}
-                <a class="other_index unselectable" href="{{ paginator.previous }}">< Previous</a>
+                <a class="left unselectable" href="{{ paginator.previous }}">< Previous</a>
               {% endif %}
-              <div class="page-nav">
+              <div class="center page-nav">
                 {% for index in range(start=1,end=paginator.number_pagers+1) %}
                   {% if index == paginator.current_index %}
                     {% if index == 1 %}
@@ -82,7 +82,7 @@
                 {% endfor %}
               </div>
               {% if paginator.next %}
-                <a class="other_index unselectable" href="{{ paginator.next }}">Next ></Next></a>
+                <a class="right unselectable" href="{{ paginator.next }}">Next ></Next></a>
               {% endif %}
             </nav>
           {% endblock content %}

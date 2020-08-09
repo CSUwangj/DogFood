@@ -35,15 +35,28 @@ main {
   a.post-title:hover, a.post-title:active {
     background-size: 100% 2px;
   }
-  .pagination {
-    margin: 10px;
-  }
   .current_index {
     padding: 4px;
     border-radius: 4px;
     color: #000;
     text-decoration-color: #000;
     background: rgba(255,255,255,0.9);
+  }
+  .pagination {
+    display: flex;
+    flex-flow: row nowrap;
+    vertical-align: middle;
+    margin-top: 20px;
+    .left {
+      float: left;
+    }
+    .center {
+      margin: 0 auto;
+      padding: 4px;
+    }
+    .right {
+      float: right;
+    }
   }
 }
 
