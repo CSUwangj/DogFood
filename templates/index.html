@@ -32,7 +32,7 @@
             <div class="logo"><a href="{{ config.base_url }}">{{ config.extra.site_name }}</a></div>
             <nav class="menu">
               {% for item in config.extra.menu_items %}
-                <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}" class="nav-item-{{ item.name | lower }}">
+                <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}" class="nav-item-{{ item.name | lower }} unselectable">
                   {{ item.name }}
                 </a>
               {% endfor %}
@@ -67,15 +67,15 @@
               {% for index in range(start=1,end=paginator.number_pagers+1) %}
                 {% if index == paginator.current_index %}
                   {% if index == 1 %}
-                    <span class="current_index" href="/">1</span>
+                    <span class="current_index unselectable" href="/">1</span>
                   {% else %}
-                    <span class="current_index" href="/page/{{ index }}">{{ index }}</span>
+                    <span class="current_index unselectable" href="/page/{{ index }}">{{ index }}</span>
                   {% endif %}
                 {% else %}
                   {% if index == 1 %}
-                    <a class="other_index" href="/">1</a>
+                    <a class="other_index unselectable" href="/">1</a>
                   {% else %}
-                    <a class="current_index" href="/page/{{ index }}">{{ index }}</a>
+                    <a class="other_index unselectable" href="/page/{{ index }}">{{ index }}</a>
                   {% endif %}
                 {% endif %}
               {% endfor %}

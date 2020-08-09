@@ -36,6 +36,35 @@ main {
   a.post-title:hover, a.post-title:active {
     background-size: 100% 2px;
   }
+  .pagination {
+    margin: 10px;
+  }
+  .other_index {
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.5s ease;
+  }
+  .other_index:hover, .other_index:active {
+    color: #000;
+    text-decoration-color: #000;
+    background: rgba(255,255,255,0.9);
+  }
+  .current_index {
+    padding: 4px;
+    border-radius: 4px;
+    color: #000;
+    text-decoration-color: #000;
+    background: rgba(255,255,255,0.9);
+  }
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .content-wrapper {
