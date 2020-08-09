@@ -57,7 +57,7 @@
                     {{ page.summary | markdown | safe }}
                   </div>
                 {% endif %}
-                <a href="{{ page.permalink }}#continue-reading" class="readmore">Read More</a>
+                <a href="{{ page.permalink }}#continue-reading" class="readmore unselectable">Read More</a>
               </section>
             {% endfor %}
             <nav class="pagination">
@@ -76,9 +76,9 @@
                     {% endif %}
                   {% else %}
                     {% if index == 1 %}
-                      <a class="other_index unselectable" href="/">1</a>
+                      <a class="unselectable" href="/">1</a>
                     {% else %}
-                      <a class="other_index unselectable" href="/page/{{ index }}">{{ index }}</a>
+                      <a class="unselectable" href="/page/{{ index }}">{{ index }}</a>
                     {% endif %}
                   {% endif %}
                 {% endfor %}

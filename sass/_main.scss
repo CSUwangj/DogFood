@@ -35,6 +35,18 @@ main {
   a.post-title:hover, a.post-title:active {
     background-size: 100% 2px;
   }
+  .readmore {
+    color: #FFF;
+    text-decoration-color: #FFF;
+    background: rgba(0,0,0,0.9);
+    border: 2px solid #000;
+  }
+  .readmore:hover, .readmore:active {
+    color: #000;
+    text-decoration-color: #000;
+    background: rgba(255,255,255,0.9);
+    border: 2px solid;
+  }
   .current_index {
     padding: 4px;
     border-radius: 4px;
