@@ -54,10 +54,14 @@
                 <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
                 {% if page.summary %}
                   <div class="content post-summary">
-                    {{ page.summary | markdown | safe }}
+                    {{ page.summary | safe }}
                   </div>
+                {% else %}
+                <div class="content post-summary">
+                  {{ page.content | truncate(length=200) | safe }}
+                </div>
                 {% endif %}
-                <a href="{{ page.permalink }}#continue-reading" class="readmore unselectable">Read More</a>
+                <div><a href="{{ page.permalink }}#continue-reading" class="readmore unselectable">Read More</a></div>
               </section>
             {% endfor %}
             <nav class="pagination">
