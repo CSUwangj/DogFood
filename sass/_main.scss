@@ -26,6 +26,9 @@ main {
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - 220px);
+  .post-title {
+    text-align: center; 
+  }
   a.post-title {
     background: linear-gradient(#333,#333) center bottom; /*OR bottom right OR bottom left*/
     background-size: 0% 2px; /*width:0% height:2px*/
@@ -95,7 +98,7 @@ main {
   margin-top: 40px;
   padding: 30px 30px 30px 30px;
   background: rgba(255,255,255,0.7) none repeat scroll;
-  color: #585858;
+  color: #383838;
 }
 
 .taxonomies-title { 

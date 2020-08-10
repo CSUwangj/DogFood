@@ -46,20 +46,23 @@
           {% block content %}
             {% for page in paginator.pages %}
               <section class="post">
-                <h1 class="post-title">
-                  <a href="{{ page.permalink }}" class="post-title">
-                    {{ page.title }}
-                  </a>
-                </h1>
+                <div class="post-title">
+                  <h1 class="post-title">
+                    <a href="{{ page.permalink }}" class="post-title">
+                      {{ page.title }}
+                    </a>
+                  </h1>
+                </div>
+                
                 <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
                 {% if page.summary %}
                   <div class="content post-summary">
                     {{ page.summary | safe }}
                   </div>
                 {% else %}
-                <div class="content post-summary">
-                  {{ page.content | truncate(length=200) | safe }}
-                </div>
+                  <div class="content post-summary">
+                    {{ page.content | truncate(length=200) | safe }}
+                  </div>
                 {% endif %}
                 <div><a href="{{ page.permalink }}#continue-reading" class="readmore unselectable">Read More</a></div>
               </section>
