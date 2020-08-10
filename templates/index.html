@@ -64,7 +64,7 @@
                     {{ page.content | truncate(length=200) | safe }}
                   </div>
                 {% endif %}
-                <div><a href="{{ page.permalink }}#continue-reading" class="readmore unselectable">Read More</a></div>
+                <div class="readmore-wrapper"><a href="{{ page.permalink }}#continue-reading" class="readmore unselectable">Read More</a></div>
               </section>
             {% endfor %}
             <nav class="pagination">
