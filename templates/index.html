@@ -57,14 +57,19 @@
                 <div class="post-meta">
                   {% if page.date %}
                     <span class="post-meta-divider">|</span>
-                    <span class="post-date">Posted on: </span><time datetime={{page.date}} title="post created">{{ page.date | date(format="%Y-%m-%d") }}</time>
+                    <span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span>
+                    <span class="post-date">Posted on: </span>
+                    <time datetime={{page.date}} title="post created">{{ page.date | date(format="%Y-%m-%d") }}</time>
                   {% endif %}
                   {% if page.updated %}
                     <span class="post-meta-divider">|</span>
-                    <span class="modify-date">Posted modified: </span><time datetime={{page.updated}} title="post modified">{{ page.updated | date(format="%Y-%m-%d") }}</time>
+                    <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span>
+                    <span class="modify-date">Posted modified: </span>
+                    <time datetime={{page.updated}} title="post modified">{{ page.updated | date(format="%Y-%m-%d") }}</time>
                   {% endif %}
                   {% if page.taxonomies.categories %}
                     <span class="post-meta-divider">|</span>
+                    <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span>
                     <span class="in-category">In: </span>
                       {% for category in page.taxonomies.categories %}
                         <a class="category" href="/category/{{ category }}">{{category}}</a>
