@@ -26,6 +26,9 @@ main {
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - 220px);
+  .post {
+    margin: 80px 0;
+  }
   .post-title {
     text-align: center; 
   }
@@ -39,6 +42,7 @@ main {
     background-size: 100% 2px;
   }
   .readmore-wrapper {
+    margin: 10px 0;
     text-align: center;
   }
   .readmore {
