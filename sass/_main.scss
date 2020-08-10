@@ -31,6 +31,12 @@ main {
   }
   .post-title {
     text-align: center; 
+    h1 {
+      font-size: 30px;
+    }
+  }
+  .post-meta {
+    text-align: center;
   }
   a.post-title {
     background: linear-gradient(#333,#333) center bottom; /*OR bottom right OR bottom left*/
