@@ -9,7 +9,7 @@
     <ul>
       {% for post in posts %}
         <li>
-          <time datetime="{{ post.date }}">{{ post.date }}</time>
+          <time datetime="{{ post.date }}">{{ post.date | date(format="%Y-%m-%d") }}</time>
           <a href="{{ post.permalink }}"> {{ post.title }}</a>
         </li>
       {% endfor %}
