@@ -30,6 +30,17 @@ main {
   min-height: calc(100vh - 220px);
   .post {
     margin: 50px 0;
+    img {
+      height: auto;
+    }
+  }
+  div {
+    div {
+      // for post page title
+      h1 {
+        line-height: normal;
+      }
+    }
   }
   .post-title {
     text-align: center; 
