@@ -26,6 +26,8 @@
       {% endif %}
       <span class="post-meta-divider">|</span>
     </div>
-    {{ page.content | safe }}
+    <div class="post-body">
+      {{ page.content | safe }}
+    </div>
   </div>
 {% endblock content %}
