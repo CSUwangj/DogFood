@@ -10,7 +10,9 @@ header{
         font-weight: bold;
       }
       a:hover, a:active {
-        color: #b8b8b8;
+        color: #f8f8f8;
+        text-decoration-color: #383838;
+        background: unset;
       }
     }
     nav {
