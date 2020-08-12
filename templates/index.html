@@ -14,7 +14,11 @@
       <link rel="stylesheet" href="{{ get_url(path="css/lib/font-awesome.min.css", trailing_slash=false) }}">
       <link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=false) }}">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+      <!-- js -->
+      <script defer type="text/javascript" src="{{ get_url(path="elasticlunr.min.js") }}"></script>
+      <script defer type="text/javascript" src="{{ get_url(path="search_index.en.js") }}"></script>
       <script type="text/javascript" charset="utf-8" src="{{ get_url(path="js/sidebar.js", trailing_slash=false) }}"></script>
+      <script type="text/javascript" charset="utf-8" src="{{ get_url(path="js/search.js", trailing_slash=false) }}"></script>
 
       {% if config.generate_feed %}
         <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
@@ -36,6 +40,15 @@
                   {{ item.name }}
                 </a>
               {% endfor %}
+              {% if config.build_search_index %}
+                <div class="nav-item-search search-container js-only">
+                  <input class="input" id="search" type="search" placeholder="Search">
+
+                  <div class="search-results box">
+                    <div class="search-results__items"></div>
+                  </div>
+                </div>
+              {% endif %}
             </nav>
           </div>
         </header>
