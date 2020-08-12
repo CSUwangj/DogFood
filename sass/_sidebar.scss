@@ -10,10 +10,19 @@
   top: 0;
   left: 0;
   overflow-x: hidden;
+  scrollbar-width: none;
   transition: 0.5s;
   padding-top: 60px;
   text-align: center;
   background-color: #b8b8b8;
+  div {
+    margin: 10px;
+  }
+}
+
+.site-author-name {
+  font-size: 20px;
+  text-decoration: underline overline;
 }
 
 .site-author-image {
