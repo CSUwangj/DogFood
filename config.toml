@@ -22,11 +22,11 @@ taxonomies = [
 [extra]
 site_name = "DogFood"
 menu_items = [
-  {url = "$BASE_URL", name = "Home"},
-  {url = "$BASE_URL/categories", name = "Categories"},
-  {url = "$BASE_URL/tags", name = "Tags"},
-  {url = "$BASE_URL/about", name = "About"},
-  {url = "$BASE_URL/archives", name = "Archives"},
+  {url = "$BASE_URL", name = "Home", icon = "fa fa-home"},
+  {url = "$BASE_URL/about", name = "About", icon = "fa fa-user-circle-o"},
+  {url = "$BASE_URL/categories", name = "Categories", icon = "fa fa-book"},
+  {url = "$BASE_URL/tags", name = "Tags", icon = "fa fa-tags"},
+  {url = "$BASE_URL/archives", name = "Archives", icon = "fa fa-inbox"},
 ]
 author = "CSUwangj"
 quote = "Just keep in mind that hacking is very rarely in a sequence."

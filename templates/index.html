@@ -37,7 +37,7 @@
             <nav class="menu">
               {% for item in config.extra.menu_items %}
                 <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}" class="nav-item-{{ item.name | lower }} unselectable">
-                  {{ item.name }}
+                  <span><i class="{{ item.icon }}"></i> {{ item.name }}</span>
                 </a>
               {% endfor %}
               {% if config.build_search_index %}
