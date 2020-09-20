@@ -14,11 +14,13 @@
       <link rel="stylesheet" href="{{ get_url(path="css/lib/font-awesome.min.css", trailing_slash=false) }}">
       <link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=false) }}">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+      {% block custom_css %}{% endblock custom_css %}
       <!-- js -->
       <script defer type="text/javascript" src="{{ get_url(path="elasticlunr.min.js") }}"></script>
       <script defer type="text/javascript" src="{{ get_url(path="search_index.en.js") }}"></script>
       <script type="text/javascript" charset="utf-8" src="{{ get_url(path="js/sidebar.js", trailing_slash=false) }}"></script>
       <script type="text/javascript" charset="utf-8" src="{{ get_url(path="js/search.js", trailing_slash=false) }}"></script>
+      {% block custom_js %}{% endblock custom_js %}
 
       {% if config.generate_feed %}
         <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
