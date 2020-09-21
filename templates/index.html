@@ -87,7 +87,7 @@
                     <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span>
                     <span class="in-category">In: </span>
                       {% for category in page.taxonomies.categories %}
-                        <a class="category" href="/categories/{{ category }}">{{category}}</a>
+                        <a class="category" href="{{ config.base_url }}/categories/{{ category }}">{{category}}</a>
                       {% endfor %}
                   {% endif %}
                   <span class="post-meta-divider">|</span>
@@ -114,15 +114,15 @@
                 {% for index in range(start=1,end=paginator.number_pagers+1) %}
                   {% if index == paginator.current_index %}
                     {% if index == 1 %}
-                      <span class="current_index unselectable" href="/">1</span>
+                      <span class="current_index unselectable" href="{{ config.base_url }}">1</span>
                     {% else %}
-                      <span class="current_index unselectable" href="/page/{{ index }}">{{ index }}</span>
+                      <span class="current_index unselectable" href="{{ config.base_url }}page/{{ index }}">{{ index }}</span>
                     {% endif %}
                   {% else %}
                     {% if index == 1 %}
-                      <a class="unselectable" href="/">1</a>
+                      <a class="unselectable" href="{{ config.base_url }}">1</a>
                     {% else %}
-                      <a class="unselectable" href="/page/{{ index }}">{{ index }}</a>
+                      <a class="unselectable" href="{{ config.base_url }}page/{{ index }}">{{ index }}</a>
                     {% endif %}
                   {% endif %}
                 {% endfor %}
