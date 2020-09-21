@@ -18,10 +18,10 @@ header{
     nav {
       a {
         display: inline-block;
-        width: 96px;
+        width: auto;
         font-size: 14px;
         transition: all 0.7s ease;
-        padding: 8px 0px;
+        padding: 8px 10px;
         border-radius: 4px;
       }
       a:hover, a:active {
