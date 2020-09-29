@@ -38,3 +38,4 @@ author_links = [
 ]
 copyright_year = "2018-2020"
 avatar = "img/avatar.png"
+katex_enabled = true
