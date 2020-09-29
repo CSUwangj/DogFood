@@ -25,10 +25,14 @@ body {
   padding-bottom: 120px;
 }
 
-pre {
-  code {
-    font-family: "Iosevka Slab", "Fira Code", Consolas, Monaco, Menlo, Consolas, monospace;
-  }
+pre, code {
+  font-family: "Iosevka Slab", "Fira Code", Consolas, Monaco, Menlo, Consolas, monospace;
+}
+
+code {
+  background: rgba(39, 40, 34, 0.1);
+  border-radius: 3px;
+  padding: 2px 4px;
 }
 
 ::-webkit-scrollbar-track {
