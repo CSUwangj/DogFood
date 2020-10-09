@@ -102,23 +102,6 @@ main {
         font-size: 35px;
         line-height: normal;
       }
-      .post-body, .post-summary {
-        h1 {
-          font-size: 30px;
-        }  
-        img{
-          height: 100%;
-          width: 100%;
-          object-fit: contain;
-        }
-        pre, .highlight {
-          overflow: auto;
-          padding: 10px;
-        }
-        a {
-          text-decoration: underline;
-        }
-      }
     }
   }
   .post-title {
@@ -126,6 +109,23 @@ main {
     h1 {
       font-size: 30px;
       line-height: 1.5em;
+    }
+  }
+  .post-body, .post-summary {
+    h1 {
+      font-size: 30px;
+    }  
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+    pre, .highlight {
+      overflow: auto;
+      padding: 10px;
+    }
+    a {
+      text-decoration: underline;
     }
   }
   .post-meta {
