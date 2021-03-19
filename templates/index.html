@@ -8,7 +8,7 @@
 
       <!-- Enable responsiveness on mobile devices-->
       <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10, viewport-fit=cover">
 
       <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
@@ -18,10 +18,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Noto+Serif+SC">
       {% block custom_css %}{% endblock custom_css %}
       <!-- js -->
-      <script defer type="text/javascript" src="{{ get_url(path="elasticlunr.min.js") }}"></script>
-      <script defer type="text/javascript" src="{{ get_url(path="search_index.en.js") }}"></script>
       <script type="text/javascript" charset="utf-8" src="{{ get_url(path="js/sidebar.js", trailing_slash=false) }}"></script>
-      <script type="text/javascript" charset="utf-8" src="{{ get_url(path="js/search.js", trailing_slash=false) }}"></script>
       {{macros::katex_load()}}
       {% block custom_js %}{% endblock custom_js %}
 
