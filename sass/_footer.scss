@@ -3,10 +3,11 @@ footer {
   left: 0;
   bottom: 0;
   margin-top: 60px;
-  width: calc(100% - 32px);
+  width: 100%;
   text-align: center;
   background-color: #282828;
   padding: 16px;
+  box-sizing: border-box;
   color: #b8b8b8b8;
   a, a:visited, a:hover, a:active {
     text-decoration: underline;
