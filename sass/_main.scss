@@ -36,10 +36,15 @@ pre, code {
   font-family: "Iosevka Slab", "Fira Code"
 }
 
-code {
+:not(pre) > code {
   background: rgba(39, 40, 34, 0.1);
   border-radius: 3px;
   padding: 2px 4px;
+}
+
+pre {
+  background: rgba(39,40,34,0.1);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-track {
