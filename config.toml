@@ -5,7 +5,7 @@ base_url = "https://CSUwangj.github.io/ZDaily"
 compile_sass = true
 
 
-# Whether to build a search index to be used later on by a JavaScript library
+# search is not available by now
 build_search_index = true
 generate_feed = true
 feed_filename = "rss.xml"
@@ -49,4 +49,4 @@ avatar = "img/avatar.png"
 # used for $$$$ quoted math formula
 katex_enabled = true
 # "left" or "right" or "none"
-sidebar = "right"
+sidebar = "left"
