@@ -11,7 +11,7 @@ a, a:visited, a:hover, a:active {
   transition: all 0.5s ease;
 }
 
-a:hover, a:active {
+a:hover, a:active, a.actived {
   color: #000;
   text-decoration-color: #000;
   background: rgba(255,255,255,0.9);

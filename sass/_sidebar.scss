@@ -14,9 +14,27 @@
   padding-top: 60px;
   text-align: center;
   background-color: #b8b8b8;
-  div {
+  div > div, div > ul, .sidebar-content-toggle {
     margin: 10px;
     width: 230px;
+  }
+  div ul {
+    text-align: left;
+    a {
+      display: unset;
+    }
+    padding-left: 20px;
+  }
+  .sidebar-content-toggle {
+    margin-top: -30px;
+  }
+  .sidebar-content-toggle a {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px;
+  }
+  .sidebar-overview, .sidebar-toc {
+    transform: translateY(0px)
   }
 }
 
