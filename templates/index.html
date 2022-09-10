@@ -23,10 +23,10 @@
       {% block custom_js %}{% endblock custom_js %}
 
       {% if config.generate_feed %}
-        <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+      <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
       {% endif %}
       {% if config.extra.favicon %}
-        <link rel="icon" type="image/x-icon" href="{{ get_url(path=config.extra.favicon) }}">
+      <link rel="icon" type="image/x-icon" href="{{ get_url(path=config.extra.favicon) }}">
       {% endif %}
 
       {% block extra_head %}
@@ -36,162 +36,164 @@
     <body>
       
       {% block header %}
-        <header name="header">
-          <div>
-            <div class="logo"><a href="{{ config.base_url }}">{{ config.extra.site_name }}</a></div>
-            <nav class="menu">
-              {% for item in config.extra.menu_items %}
-                <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}" class="nav-item-{{ item.name | lower }} unselectable">
-                  <span><i class="{{ item.icon }}"></i> {{ item.name }}</span>
-                </a>
-              {% endfor %}
-              {% if config.build_search_index %}
-                <div class="nav-item-search search-container js-only">
-                  <input class="input" id="search" type="search" placeholder="Search">
+      <header name="header">
+        <div>
+          <div class="logo"><a href="{{ config.base_url }}">{{ config.extra.site_name }}</a></div>
+          <nav class="menu">
+            {% for item in config.extra.menu_items %}
+            <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}" class="nav-item-{{ item.name | lower }} unselectable">
+              <span><i class="{{ item.icon }}"></i> {{ item.name }}</span>
+            </a>
+            {% endfor %}
+            {% if config.build_search_index %}
+            <div class="nav-item-search search-container js-only">
+              <input class="input" id="search" type="search" placeholder="Search">
 
-                  <div class="search-results box">
-                    <div class="search-results__items"></div>
-                  </div>
-                </div>
-              {% endif %}
-            </nav>
-          </div>
-        </header>
+              <div class="search-results box">
+                <div class="search-results__items"></div>
+              </div>
+            </div>
+            {% endif %}
+          </nav>
+        </div>
+      </header>
       {% endblock %}
 
       <main class="content container" name="main">
         <div class="content-wrapper">
           {% block content %}
-            {% for page in paginator.pages %}
-              <section class="post">
-                <div class="post-title">
-                  <h1 class="post-title">
-                    <a href="{{ page.permalink }}" class="post-title">
-                      {{ page.title }}
-                    </a>
-                  </h1>
-                </div>
-                
-                <div class="post-meta">
-                  {% if page.date %}
-                    <span class="post-meta-divider">|</span>
-                    <span class="post-meta-item-icon"><i class="fa-solid fa-calendar"></i></span>
-                    <span class="post-date">Posted on: </span>
-                    <time datetime={{page.date}} title="post created at {{page.date}}">{{ page.date | date(format="%Y-%m-%d") }}</time>
-                  {% endif %}
-                  {% if page.updated %}
-                    <span class="post-meta-divider">|</span>
-                    <span class="post-meta-item-icon"><i class="fa-solid fa-calendar-check"></i></span>
-                    <span class="modify-date">Posted modified: </span>
-                    <time datetime={{page.updated}} title="post modified at {{page.updated}}">{{ page.updated | date(format="%Y-%m-%d") }}</time>
-                  {% endif %}
-                  {% if page.taxonomies.categories %}
-                    <span class="post-meta-divider">|</span>
-                    <span class="post-meta-item-icon"><i class="fa-solid fa-folder"></i></span>
-                    <span class="in-category">In: </span>
-                      {% for category in page.taxonomies.categories %}
-                        <a class="category" href="{{ config.base_url }}categories/{{ category }}">{{category}}</a>
-                      {% endfor %}
-                  {% endif %}
-                  <span class="post-meta-divider">|</span>
-                </div>
-                {% if page.summary %}
-                  <div class="content post-summary">
-                    {{ page.summary | safe }}
-                  </div>
+          {% for page in paginator.pages %}
+          <section class="post">
+            <div class="post-title">
+              <h1 class="post-title">
+                <a href="{{ page.permalink }}" class="post-title">
+                  {{ page.title }}
+                </a>
+              </h1>
+            </div>
+            
+            <div class="post-meta">
+              {% if page.date %}
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon"><i class="fa-solid fa-calendar"></i></span>
+              <span class="post-date">Posted on: </span>
+              <time datetime={{page.date}} title="post created at {{page.date}}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+              {% endif %}
+              {% if page.updated %}
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon"><i class="fa-solid fa-calendar-check"></i></span>
+              <span class="modify-date">Posted modified: </span>
+              <time datetime={{page.updated}} title="post modified at {{page.updated}}">{{ page.updated | date(format="%Y-%m-%d") }}</time>
+              {% endif %}
+              {% if page.taxonomies.categories %}
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon"><i class="fa-solid fa-folder"></i></span>
+              <span class="in-category">In: </span>
+              {% for category in page.taxonomies.categories %}
+              <a class="category" href="{{ config.base_url }}categories/{{ category }}">{{category}}</a>
+              {% endfor %}
+              {% endif %}
+              <span class="post-meta-divider">|</span>
+            </div>
+            {% if page.summary %}
+            <div class="content post-summary">
+              {{ page.summary | safe }}
+            </div>
+            {% else %}
+            <div class="content post-summary">
+              {{ page.content | truncate(length=200) | safe }}
+            </div>
+            {% endif %}
+            <div class="readmore-wrapper"><a href="{{ page.permalink }}#continue-reading" class="readmore unselectable">Read More</a></div>
+          </section>
+          {% endfor %}
+          <nav class="pagination">
+            {% if paginator.previous %}
+            <a class="left unselectable" href="{{ paginator.previous }}">< Prev</a>
+            {% else %}
+            <div class="empty"></div>
+            {% endif %}
+            <div class="center page-nav">
+              {% if paginator.current_index > 7 %}
+              <span class="unselectable">···</span>
+              {% endif %}
+              {% for index in range(start=1,end=paginator.number_pagers+1) %}
+              {% if index < paginator.current_index - 6 or index > paginator.current_index + 6 %}{% continue %}{% endif %}
+              {% if index == paginator.current_index %}
+                {% if index == 1 %}
+                  <span class="current_index unselectable" href="{{ config.base_url }}">1</span>
                 {% else %}
-                  <div class="content post-summary">
-                    {{ page.content | truncate(length=200) | safe }}
-                  </div>
+                  <span class="current_index unselectable" href="{{ config.base_url }}page/{{ index }}">{{ index }}</span>
                 {% endif %}
-                <div class="readmore-wrapper"><a href="{{ page.permalink }}#continue-reading" class="readmore unselectable">Read More</a></div>
-              </section>
-            {% endfor %}
-            <nav class="pagination">
-              {% if paginator.previous %}
-                <a class="left unselectable" href="{{ paginator.previous }}">< Prev</a>
               {% else %}
-                <div class="empty"></div>
-              {% endif %}
-              <div class="center page-nav">
-                {% if paginator.current_index > 7 %}
-                  <span class="unselectable">···</span>
+                {% if index == 1 %}
+                  <a class="unselectable" href="{{ config.base_url }}">1</a>
+                {% else %}
+                  <a class="unselectable" href="{{ config.base_url }}page/{{ index }}">{{ index }}</a>
                 {% endif %}
-                {% for index in range(start=1,end=paginator.number_pagers+1) %}
-                  {% if index < paginator.current_index - 6 or index > paginator.current_index + 6 %}{% continue %}{% endif %}
-                  {% if index == paginator.current_index %}
-                    {% if index == 1 %}
-                      <span class="current_index unselectable" href="{{ config.base_url }}">1</span>
-                    {% else %}
-                      <span class="current_index unselectable" href="{{ config.base_url }}page/{{ index }}">{{ index }}</span>
-                    {% endif %}
-                  {% else %}
-                    {% if index == 1 %}
-                      <a class="unselectable" href="{{ config.base_url }}">1</a>
-                    {% else %}
-                      <a class="unselectable" href="{{ config.base_url }}page/{{ index }}">{{ index }}</a>
-                    {% endif %}
-                  {% endif %}
-                {% endfor %}
-                {% if paginator.number_pagers - paginator.current_index > 6%}
-                  <span class="unselectable">···</span>
-                {% endif %}
-              </div>
-              {% if paginator.next %}
-                <a class="right unselectable" href="{{ paginator.next }}">Next ></Next></a>
-              {% else %}
-                <div class="empty"></div>
               {% endif %}
-            </nav>
+              {% endfor %}
+              {% if paginator.number_pagers - paginator.current_index > 6%}
+              <span class="unselectable">···</span>
+              {% endif %}
+            </div>
+            {% if paginator.next %}
+            <a class="right unselectable" href="{{ paginator.next }}">Next ></Next></a>
+            {% else %}
+            <div class="empty"></div>
+            {% endif %}
+          </nav>
           {% endblock content %}
         </div>
 
+        {% if config.extra.sidebar != "none" %}
         {% block sidebar %}
-          <button class="sidebar-toggle" onclick="openSidebar()">O</button>
-          <aside class="sidebar" name="sidebar">
-            <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
-              {% if config.extra.avatar %}
-              <img class="site-author-image" itemprop="image"
-                src="{{ get_url(path=config.extra.avatar) }}"
-                alt="{{ config.extra.author }}" />
-              {% endif %}
-              <p class="site-author-name unselectable">{{ config.extra.author }}</p>
-              <p class="site-author-quote">{{ config.extra.quote }}</p>
-            </div>
-            <div class="feed-link">
-              {% if config.generate_feed %}
-                <a rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
-                  RSS
-                </a>
-              {% endif %}
-            </div>
-            <div class="links-of-author">
-              {% for link in config.extra.author_links %}
-                <a href="{{ link.url }}" title="{{ link.name }}" class="author-link">
-                  <i class="{{ link.favicon }}"></i>
-                </a>
-              {% endfor %}
-            </div>
-            <div class="links-of-blogroll">
-              {% for link in config.extra.links %}
-                <a href="{{ link.url }}">{{ link.name }}</a>
-              {% endfor %}
-            </div>
-          </aside>
+        <button class="sidebar-toggle {{ config.extra.sidebar }}-sidebar-toggle" onclick="openSidebar()">O</button>
+        <aside class="sidebar {{ config.extra.sidebar }}" name="sidebar">
+          <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
+            {% if config.extra.avatar %}
+            <img class="site-author-image" itemprop="image"
+              src="{{ get_url(path=config.extra.avatar) }}"
+              alt="{{ config.extra.author }}" />
+            {% endif %}
+            <p class="site-author-name unselectable">{{ config.extra.author }}</p>
+            <p class="site-author-quote">{{ config.extra.quote }}</p>
+          </div>
+          <div class="feed-link">
+            {% if config.generate_feed %}
+            <a rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+              RSS
+            </a>
+            {% endif %}
+          </div>
+          <div class="links-of-author">
+            {% for link in config.extra.author_links %}
+            <a href="{{ link.url }}" title="{{ link.name }}" class="author-link">
+              <i class="{{ link.favicon }}"></i>
+            </a>
+            {% endfor %}
+          </div>
+          <div class="links-of-blogroll">
+            {% for link in config.extra.links %}
+            <a href="{{ link.url }}">{{ link.name }}</a>
+            {% endfor %}
+          </div>
+        </aside>
         {% endblock sidebar %}
+        {% endif %}
 
       </main>
 
       {% block footer %}
-        <footer name="footer">
-          <div class="copyright">
-            <span item="copyrightYear">© {{ config.extra.copyright_year }}</span>
-            <span class="author">{{ config.extra.author }}</span>
-          </div>
-          <div class="powered-by">
-            Powered by <a href="https://www.getzola.org/">Zola</a> Theme <a href="https://github.com/CSUwangj/DogFood">DogFood</a>
-          </div>
-        </footer>
+      <footer name="footer">
+        <div class="copyright">
+          <span item="copyrightYear">© {{ config.extra.copyright_year }}</span>
+          <span class="author">{{ config.extra.author }}</span>
+        </div>
+        <div class="powered-by">
+          Powered by <a href="https://www.getzola.org/">Zola</a> Theme <a href="https://github.com/CSUwangj/DogFood">DogFood</a>
+        </div>
+      </footer>
       {% endblock %}
     </body>
 

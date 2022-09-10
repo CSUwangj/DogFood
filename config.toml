@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://DogFood.github.io/"
+base_url = "https://CSUwangj.github.io/ZDaily"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -23,6 +23,7 @@ highlight_theme = "monokai"
 
 
 [extra]
+# nav menu title
 site_name = "DogFood"
 menu_items = [
   {url = "$BASE_URL", name = "Home", icon = "fa fa-home"},
@@ -31,14 +32,21 @@ menu_items = [
   {url = "$BASE_URL/tags", name = "Tags", icon = "fa fa-tags"},
   {url = "$BASE_URL/archives", name = "Archives", icon = "fa fa-inbox"},
 ]
+# will be used everywhere ;D
 author = "CSUwangj"
+# will be used in about page and sidebar
 quote = "Just keep in mind that hacking is very rarely in a sequence."
 links = [
   {name = "Author of DogFood", url = "https://CSUwangj.github.io/"},
 ]
+# check font awesome 6 for more favicon
 author_links = [
-  {name = "Github", url = "https://github.com/CSUwangj", favicon = "fa fw fa-github"},
+  {name = "Github", url = "https://github.com/CSUwangj", favicon = "fa-brands fa-github"},
 ]
-copyright_year = "2018-2020"
+copyright_year = "2018-2022"
+# will be in about page and side bar
 avatar = "img/avatar.png"
+# used for $$$$ quoted math formula
 katex_enabled = true
+# "left" or "right" or "none"
+sidebar = "right"
