@@ -100,7 +100,10 @@
           {% endfor %}
           <nav class="pagination">
             {% if paginator.previous %}
-            <a class="left unselectable" href="{{ paginator.previous }}">< Prev</a>
+            <a class="left unselectable" href="{{ paginator.previous }}">
+              <i class="fa-solid fa-caret-left"></i>
+              Prev
+            </a>
             {% else %}
             <div class="empty"></div>
             {% endif %}
@@ -129,7 +132,10 @@
               {% endif %}
             </div>
             {% if paginator.next %}
-            <a class="right unselectable" href="{{ paginator.next }}">Next ></Next></a>
+            <a class="right unselectable" href="{{ paginator.next }}">
+              Next
+              <i class="fa-solid fa-caret-right"></i>
+            </a>
             {% else %}
             <div class="empty"></div>
             {% endif %}
@@ -198,6 +204,24 @@
                 {% for h4 in h3.children %}
                 <li>
                 <a href="{{ h4.permalink | safe }}">{{ h4.title }}</a>
+                  {% if h4.children %}
+                  <ul>
+                  {% for h5 in h4.children %}
+                  <li>
+                  <a href="{{ h5.permalink | safe }}">{{ h5.title }}</a>
+                    {% if h5.children %}
+                    <ul>
+                    {% for h6 in h5.children %}
+                    <li>
+                    <a href="{{ h6.permalink | safe }}">{{ h6.title }}</a>
+                    </li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                  </li>
+                  {% endfor %}
+                  </ul>
+                  {% endif %}
                 </li>
                 {% endfor %}
                 </ul>

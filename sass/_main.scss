@@ -173,6 +173,7 @@ main {
     flex-flow: row nowrap;
     vertical-align: middle;
     margin-top: 20px;
+    justify-content: space-between;
     .left {
       float: left;
       text-align: center;
@@ -203,6 +204,10 @@ main {
   time {
     text-decoration-style: dotted;
     text-decoration-line: underline;
+  }
+  .post-tags {
+    padding-top: 20px;
+    text-align: center;
   }
 }
 

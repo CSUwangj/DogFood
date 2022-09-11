@@ -5,29 +5,55 @@
     <h1 class="post-title">{{ page.title }}</h1>
     <div class="post-meta">
       {% if page.date %}
-        <span class="post-meta-divider">|</span>
-        <span class="post-meta-item-icon"><i class="fa-solid fa-calendar"></i></span>
-        <span class="post-date">Posted on: </span>
-        <time datetime={{page.date}} title="post created">{{ page.date | date(format="%Y-%m-%d") }}</time>
+      <span class="post-meta-divider">|</span>
+      <span class="post-meta-item-icon"><i class="fa-solid fa-calendar"></i></span>
+      <span class="post-date">Posted on: </span>
+      <time datetime={{page.date}} title="post created">{{ page.date | date(format="%Y-%m-%d") }}</time>
       {% endif %}
       {% if page.updated %}
-        <span class="post-meta-divider">|</span>
-        <span class="post-meta-item-icon"><i class="fa-solid fa-calendar-check"></i></span>
-        <span class="modify-date">Posted modified: </span>
-        <time datetime={{page.updated}} title="post modified">{{ page.updated | date(format="%Y-%m-%d") }}</time>
+      <span class="post-meta-divider">|</span>
+      <span class="post-meta-item-icon"><i class="fa-solid fa-calendar-check"></i></span>
+      <span class="modify-date">Posted modified: </span>
+      <time datetime={{page.updated}} title="post modified">{{ page.updated | date(format="%Y-%m-%d") }}</time>
       {% endif %}
       {% if page.taxonomies.categories %}
-        <span class="post-meta-divider">|</span>
-        <span class="post-meta-item-icon"><i class="fa-solid fa-folder"></i></span>
-        <span class="in-category">In: </span>
-          {% for category in page.taxonomies.categories %}
-            <a class="category" href="/category/{{ category }}">{{category}}</a>
-          {% endfor %}
+      <span class="post-meta-divider">|</span>
+      <span class="post-meta-item-icon"><i class="fa-solid fa-folder"></i></span>
+      <span class="in-category">In: </span>
+      {% for category in page.taxonomies.categories %}
+      <a class="category" href="/categories/{{ category }}">{{ category }}</a>
+      {% endfor %}
       {% endif %}
       <span class="post-meta-divider">|</span>
     </div>
     <div class="post-body">
       {{ page.content | safe }}
     </div>
+    <div class="post-tags">
+      {% for tag in page.taxonomies.tags %}
+      <a class="tag" href="/tags/{{ tag }}">
+        <i class="fa-solid fa-tag"></i>
+        {{ tag }}
+      </a>
+      {% endfor %}
+    </div>
   </div>
+  <nav class="pagination">
+    {% if page.lower %}
+    <a class="left unselectable" href="{{ page.lower.permalink }}">
+      <i class="fa-solid fa-caret-left"></i>
+      {{ page.lower.title }}
+    </a>
+    {% else %}
+    <div class="empty"></div>
+    {% endif %}
+    {% if page.higher %}
+    <a class="right unselectable" href="{{ page.higher.permalink }}">
+      {{ page.higher.title }}
+      <i class="fa-solid fa-caret-right"></i>
+    </a>
+    {% else %}
+    <div class="empty"></div>
+    {% endif %}
+  </nav>
 {% endblock content %}
