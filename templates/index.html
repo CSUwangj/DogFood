@@ -45,15 +45,6 @@
               <span><i class="{{ item.icon }}"></i> {{ item.name }}</span>
             </a>
             {% endfor %}
-            {% if config.build_search_index %}
-            <div class="nav-item-search search-container js-only">
-              <input class="input" id="search" type="search" placeholder="Search">
-
-              <div class="search-results box">
-                <div class="search-results__items"></div>
-              </div>
-            </div>
-            {% endif %}
           </nav>
         </div>
       </header>
