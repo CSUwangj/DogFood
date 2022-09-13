@@ -21,7 +21,7 @@
       <span class="post-meta-item-icon"><i class="fa-solid fa-folder"></i></span>
       <span class="in-category">In: </span>
       {% for category in page.taxonomies.categories %}
-      <a class="category" href="/categories/{{ category }}">{{ category }}</a>
+      <a class="category" href="{{ config.base_url }}/categories/{{ category }}">{{ category }}</a>
       {% endfor %}
       {% endif %}
       <span class="post-meta-divider">|</span>
@@ -29,14 +29,16 @@
     <div class="post-body">
       {{ page.content | safe }}
     </div>
+    {% if page.taxonomies.tags %}
     <div class="post-tags">
       {% for tag in page.taxonomies.tags %}
-      <a class="tag" href="/tags/{{ tag }}">
+      <a class="tag" href="{{ config.base_url }}/tags/{{ tag }}">
         <i class="fa-solid fa-tag"></i>
         {{ tag }}
       </a>
       {% endfor %}
     </div>
+    {% endif %}
   </div>
   <nav class="pagination">
     {% if page.lower %}

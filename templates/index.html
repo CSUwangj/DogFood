@@ -81,7 +81,7 @@
               <span class="post-meta-item-icon"><i class="fa-solid fa-folder"></i></span>
               <span class="in-category">In: </span>
               {% for category in page.taxonomies.categories %}
-              <a class="category" href="{{ config.base_url }}categories/{{ category }}">{{category}}</a>
+              <a class="category" href="{{ config.base_url }}/categories/{{ category }}">{{category}}</a>
               {% endfor %}
               {% endif %}
               <span class="post-meta-divider">|</span>
@@ -117,13 +117,13 @@
                 {% if index == 1 %}
                   <span class="current_index unselectable" href="{{ config.base_url }}">1</span>
                 {% else %}
-                  <span class="current_index unselectable" href="{{ config.base_url }}page/{{ index }}">{{ index }}</span>
+                  <span class="current_index unselectable" href="{{ config.base_url }}/page/{{ index }}">{{ index }}</span>
                 {% endif %}
               {% else %}
                 {% if index == 1 %}
                   <a class="unselectable" href="{{ config.base_url }}">1</a>
                 {% else %}
-                  <a class="unselectable" href="{{ config.base_url }}page/{{ index }}">{{ index }}</a>
+                  <a class="unselectable" href="{{ config.base_url }}/page/{{ index }}">{{ index }}</a>
                 {% endif %}
               {% endif %}
               {% endfor %}
