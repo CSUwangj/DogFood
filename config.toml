@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://CSUwangj.github.io/ZDaily"
+base_url = "https://CSUwangj.github.io/ZDaily/"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -26,11 +26,11 @@ highlight_theme = "monokai"
 # nav menu title
 site_name = "DogFood"
 menu_items = [
-  {url = "$BASE_URL", name = "Home", icon = "fa fa-home"},
-  {url = "$BASE_URL/about", name = "About", icon = "fa fa-user-circle-o"},
-  {url = "$BASE_URL/categories", name = "Categories", icon = "fa fa-book"},
-  {url = "$BASE_URL/tags", name = "Tags", icon = "fa fa-tags"},
-  {url = "$BASE_URL/archives", name = "Archives", icon = "fa fa-inbox"},
+  {url = "$BASE_URL", name = "Home", icon = "fa-solid fa-house"},
+  {url = "$BASE_URL/about", name = "About", icon = "fa-solid fa-user-circle"},
+  {url = "$BASE_URL/categories", name = "Categories", icon = "fa-solid fa-books"},
+  {url = "$BASE_URL/tags", name = "Tags", icon = "fa-solid fa-tags"},
+  {url = "$BASE_URL/archives", name = "Archives", icon = "fa-solid fa-inbox"},
 ]
 # will be used everywhere ;D
 author = "CSUwangj"

@@ -2,6 +2,11 @@
 
 
 {% block content %}
+
+  <h1 class="taxonomies-title">
+    <i class="fa-solid fa-inbox"></i>
+    Archives
+  </h1>
   {% for archive in terms %}
     {% for year, posts in archive.pages | group_by(attribute="year") %}
     <h2>{{ year }}</h2>
