@@ -28,7 +28,7 @@ site_name = "DogFood"
 menu_items = [
   {url = "$BASE_URL", name = "Home", icon = "fa-solid fa-house"},
   {url = "$BASE_URL/about", name = "About", icon = "fa-solid fa-user-circle"},
-  {url = "$BASE_URL/categories", name = "Categories", icon = "fa-solid fa-books"},
+  {url = "$BASE_URL/categories", name = "Categories", icon = "fa-solid fa-book"},
   {url = "$BASE_URL/tags", name = "Tags", icon = "fa-solid fa-tags"},
   {url = "$BASE_URL/archives", name = "Archives", icon = "fa-solid fa-inbox"},
 ]

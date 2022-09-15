@@ -106,3 +106,27 @@ button.sidebar-toggle {
 .right-sidebar-toggle {
   right: 30px;
 }
+
+.sidebar-post-overview {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+a.sidebar-post-overview-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-decoration: unset;
+}
+
+.sidebar-post-overview-item + .sidebar-post-overview-item {
+  border-left: 0.5px solid lightgray;
+}
+
+.sidebar-post-overview-amount {
+  font-size: 30px;
+}
+.sidebar-post-overview-type {
+  font-size: 11px;
+}

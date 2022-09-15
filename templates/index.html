@@ -145,6 +145,9 @@
 
         {% if config.extra.sidebar != "none" %}
         {% block sidebar %}
+        {% set categories = get_taxonomy(kind="categories") %}
+        {% set tags = get_taxonomy(kind="tags") %}
+        {% set archives = get_taxonomy(kind="archives") %}
         <button class="sidebar-toggle {{ config.extra.sidebar }}-sidebar-toggle" onclick="openSidebar()">O</button>
         <aside class="sidebar {{ config.extra.sidebar }}" name="sidebar">
           {% if page.toc %}
@@ -162,6 +165,35 @@
               {% endif %}
               <p class="site-author-name unselectable">{{ config.extra.author }}</p>
               <p class="site-author-quote">{{ config.extra.quote }}</p>
+            </div>
+            <div class="sidebar-post-overview">
+              {% if categories %}
+              <a class="sidebar-post-overview-item" href="{{ config.base_url }}/categories">
+                <span class="sidebar-post-overview-amount unselectable">{{ categories.items | length }}</span>
+                <span class="sidebar-post-overview-type unselectable">
+                  <i class="fa-solid fa-book"></i>
+                  categories
+                </span>
+              </a>
+              {% endif %}
+              {% if tags %}
+              <a class="sidebar-post-overview-item" href="{{ config.base_url }}/tags">
+                <span class="sidebar-post-overview-amount unselectable">{{ tags.items | length }}</span>
+                <span class="sidebar-post-overview-type unselectable">
+                  <i class="fa-solid fa-tags"></i>
+                  tags
+                </span>
+              </a>
+              {% endif %}
+              {% if archives %}
+              <a class="sidebar-post-overview-item" href="{{ config.base_url }}/archives">
+                <span class="sidebar-post-overview-amount unselectable">{{ archives.items[0].pages | length }}</span>
+                <span class="sidebar-post-overview-type unselectable">
+                  <i class="fa-solid fa-inbox"></i>
+                  posts
+                </span>
+              </a>
+              {% endif %}
             </div>
             <div class="feed-link">
               {% if config.generate_feed %}

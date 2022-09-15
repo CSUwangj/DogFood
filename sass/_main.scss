@@ -130,7 +130,7 @@ main {
       padding: 10px;
     }
   }
-  a:not(.post-title, .readmore) {
+  a:not(.post-title, .readmore, .sidebar-post-overview-item) {
     text-decoration: underline;
   }
   .post-meta {
