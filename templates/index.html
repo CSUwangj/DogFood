@@ -65,26 +65,30 @@
             
             <div class="post-meta">
               {% if page.date %}
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon"><i class="fa-solid fa-calendar"></i></span>
-              <span class="post-date">Posted on: </span>
-              <time datetime={{page.date}} title="post created at {{page.date}}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+              <div class="post-meta-item">
+                <span class="post-meta-item-icon"><i class="fa-solid fa-calendar"></i></span>
+                <span class="post-date">Posted on: </span>
+                <time datetime={{page.date}} title="post created at {{page.date}}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+              </div>
               {% endif %}
               {% if page.updated %}
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon"><i class="fa-solid fa-calendar-check"></i></span>
-              <span class="modify-date">Posted modified: </span>
-              <time datetime={{page.updated}} title="post modified at {{page.updated}}">{{ page.updated | date(format="%Y-%m-%d") }}</time>
+              <div class="post-meta-item">
+                <span class="post-meta-item-icon"><i class="fa-solid fa-calendar-check"></i></span>
+                <span class="modify-date">Posted modified: </span>
+                <time datetime={{page.updated}} title="post modified at {{page.updated}}">{{ page.updated | date(format="%Y-%m-%d") }}</time>
+              </div>
               {% endif %}
               {% if page.taxonomies.categories %}
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon"><i class="fa-solid fa-folder"></i></span>
-              <span class="in-category">In: </span>
-              {% for category in page.taxonomies.categories %}
-              <a class="category" href="{{ config.base_url }}/categories/{{ category }}">{{category}}</a>
-              {% endfor %}
+              <div class="post-meta-item">
+                <span class="post-meta-item-icon"><i class="fa-solid fa-book"></i></span>
+                <span class="in-category">In: </span>
+                {% for category in page.taxonomies.categories %}
+                <a class="category" href="{{ config.base_url }}/categories/{{ category }}">
+                  {{ category }}
+                </a>
+                {% endfor %}
+              </div>
               {% endif %}
-              <span class="post-meta-divider">|</span>
             </div>
             {% if page.summary %}
             <div class="content post-summary">

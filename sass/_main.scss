@@ -92,6 +92,16 @@ main {
     img {
       height: auto;
     }
+    .post-meta {
+      display: flex;
+      justify-content: space-around;
+    }
+    .post-meta-item {
+      flex: 1 1 auto;
+    }
+    .post-meta-item + .post-meta-item {
+      border-left: 0.5px solid black;
+    }
   }
   table, thead, th, tbody, td {
     border-collapse: collapse;
