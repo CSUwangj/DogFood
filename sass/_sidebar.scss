@@ -16,7 +16,8 @@
   background-color: #b8b8b8;
   div > div, div > ul, .sidebar-content-toggle {
     margin: 10px;
-    width: 230px;
+    width: calc(100% - 20px);
+    min-width: 230px;
   }
   div ul {
     text-align: left;
@@ -135,25 +136,51 @@ a.sidebar-post-overview-item {
   font-size: 11px;
 }
 
-footer.with_sidebar, header.with_sidebar {
-  width: calc(100% - 250px);
+
+@media only screen and (min-width: 601px) {
+  footer.with_sidebar, header.with_sidebar {
+    width: calc(100% - 250px);
+  }
+
+  footer.with_sidebar.left_sidebar, header.with_sidebar.left_sidebar, main.with_sidebar.left_sidebar {
+    margin-left: 250px;
+  }
+
+  main.with_sidebar {
+    width: calc(100% - 282px);
+  }
+
+
+  aside.sidebar {
+    width: 0;
+  }
+
+  aside.sidebar.with_sidebar {
+    width: 250px;
+  }
 }
 
-footer.with_sidebar.left_sidebar, header.with_sidebar.left_sidebar, main.with_sidebar.left_sidebar {
-  margin-left: 250px;
-}
+@media only screen and (max-width: 600px) {
+  footer.with_sidebar, header.with_sidebar {
+    width: 100%;
+  }
 
-main.with_sidebar {
-  width: calc(100% - 282px);
-}
+  footer.with_sidebar.left_sidebar, header.with_sidebar.left_sidebar, main.with_sidebar.left_sidebar {
+    margin-left: 0
+  }
+
+  main.with_sidebar {
+    width: calc(100% - 32px);
+  }
 
 
-aside.sidebar {
-  width: 0;
-}
+  aside.sidebar {
+    width: 0;
+  }
 
-aside.sidebar.with_sidebar {
-  width: 250px;
+  aside.sidebar.with_sidebar {
+    width: 100%;
+  }
 }
 
 aside.left_sidebar {

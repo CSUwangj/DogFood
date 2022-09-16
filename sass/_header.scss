@@ -31,7 +31,9 @@ header{
       }
       transition: all 0.5s ease;
       display: inline-block;
-      margin-left: 50px;
+      @media only screen and (min-width: 800px) {
+        margin-left: 50px;
+      }
     }
   }
   background-color: #282828;
