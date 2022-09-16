@@ -74,7 +74,8 @@ main {
   line-height: 1.5em;
   text-align: justify;
   padding: 16px;
-  display: grid;
+  box-sizing: border-box;
+  width: 100%;
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - 220px);
@@ -130,7 +131,7 @@ main {
       padding: 10px;
     }
   }
-  a:not(.post-title, .readmore, .sidebar-post-overview-item) {
+  a:not(.post-title, .readmore, .sidebar-post-overview-item, .author-link) {
     text-decoration: underline;
   }
   .post-meta {
@@ -223,6 +224,7 @@ main {
 .content-wrapper {
   max-width: 700px;
   border-radius: 30px;
+  margin: auto;
   margin-top: 40px;
   padding: 30px 30px 30px 30px;
   background: rgba(255,255,255,0.7) none repeat scroll;
