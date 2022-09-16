@@ -36,7 +36,7 @@
     <body>
       
       {% block header %}
-      <header name="header">
+      <header name="header" class="{{ config.extra.sidebar }}">
         <div>
           <div class="logo"><a href="{{ config.base_url }}">{{ config.extra.site_name }}</a></div>
           <nav class="menu">
@@ -50,7 +50,7 @@
       </header>
       {% endblock %}
 
-      <main class="content container" name="main">
+      <main class="content container {{ config.extra.sidebar }}" name="main">
         <div class="content-wrapper">
           {% block content %}
           {% for page in paginator.pages %}
@@ -142,114 +142,124 @@
           </nav>
           {% endblock content %}
         </div>
+      </main>
 
-        {% if config.extra.sidebar != "none" %}
-        {% block sidebar %}
-        {% set categories = get_taxonomy(kind="categories") %}
-        {% set tags = get_taxonomy(kind="tags") %}
-        {% set archives = get_taxonomy(kind="archives") %}
-        <button class="sidebar-toggle {{ config.extra.sidebar }}-sidebar-toggle" onclick="openSidebar()">O</button>
-        <aside class="sidebar {{ config.extra.sidebar }}" name="sidebar">
-          {% if page.toc %}
-          <div class="sidebar-content-toggle">
-            <a name="swith-to-toc-button" class="actived" onclick="switchToTOC()">Table of Content</>
-            <a name="swith-to-about-authour-button" onclick="switchToAboutAuthor()">About Author</a>
+      {% block footer %}
+      <footer name="footer" class="{{ config.extra.sidebar }}">
+        <div class="copyright">
+          <span item="copyrightYear">© {{ config.extra.copyright_year }}</span>
+          <span class="author">{{ config.extra.author }}</span>
+        </div>
+        <div class="powered-by">
+          Powered by <a href="https://www.getzola.org/">Zola</a> Theme <a href="https://github.com/CSUwangj/DogFood">DogFood</a>
+        </div>
+      </footer>
+      {% endblock %}
+
+
+      {% if config.extra.sidebar != "none" %}
+      {% block sidebar %}
+      {% set categories = get_taxonomy(kind="categories") %}
+      {% set tags = get_taxonomy(kind="tags") %}
+      {% set archives = get_taxonomy(kind="archives") %}
+      <button class="sidebar-toggle {{ config.extra.sidebar }}-sidebar-toggle" onclick="openSidebar()">O</button>
+      <aside class="sidebar {{ config.extra.sidebar }}" name="sidebar">
+        {% if page.toc %}
+        <div class="sidebar-content-toggle">
+          <a name="swith-to-toc-button" class="actived" onclick="switchToTOC()">Table of Content</>
+          <a name="swith-to-about-authour-button" onclick="switchToAboutAuthor()">About Author</a>
+        </div>
+        {% endif %}
+        <div class="sidebar-overview" {% if page.toc %} style="opacity:0;display:none" {% endif %}>
+          <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
+            {% if config.extra.avatar %}
+            <img class="site-author-image" itemprop="image"
+              src="{{ get_url(path=config.extra.avatar) }}"
+              alt="{{ config.extra.author }}" />
+            {% endif %}
+            <p class="site-author-name unselectable">{{ config.extra.author }}</p>
+            <p class="site-author-quote">{{ config.extra.quote }}</p>
           </div>
-          {% endif %}
-          <div class="sidebar-overview" {% if page.toc %} style="opacity:0;display:none" {% endif %}>
-            <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
-              {% if config.extra.avatar %}
-              <img class="site-author-image" itemprop="image"
-                src="{{ get_url(path=config.extra.avatar) }}"
-                alt="{{ config.extra.author }}" />
-              {% endif %}
-              <p class="site-author-name unselectable">{{ config.extra.author }}</p>
-              <p class="site-author-quote">{{ config.extra.quote }}</p>
-            </div>
-            <div class="sidebar-post-overview">
-              {% if categories %}
-              <a class="sidebar-post-overview-item" href="{{ config.base_url }}/categories">
-                <span class="sidebar-post-overview-amount unselectable">{{ categories.items | length }}</span>
-                <span class="sidebar-post-overview-type unselectable">
-                  <i class="fa-solid fa-book"></i>
-                  categories
-                </span>
-              </a>
-              {% endif %}
-              {% if tags %}
-              <a class="sidebar-post-overview-item" href="{{ config.base_url }}/tags">
-                <span class="sidebar-post-overview-amount unselectable">{{ tags.items | length }}</span>
-                <span class="sidebar-post-overview-type unselectable">
-                  <i class="fa-solid fa-tags"></i>
-                  tags
-                </span>
-              </a>
-              {% endif %}
-              {% if archives %}
-              <a class="sidebar-post-overview-item" href="{{ config.base_url }}/archives">
-                <span class="sidebar-post-overview-amount unselectable">{{ archives.items[0].pages | length }}</span>
-                <span class="sidebar-post-overview-type unselectable">
-                  <i class="fa-solid fa-inbox"></i>
-                  posts
-                </span>
-              </a>
-              {% endif %}
-            </div>
-            <div class="feed-link">
-              {% if config.generate_feed %}
-              <a rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
-                RSS
-              </a>
-              {% endif %}
-            </div>
-            <div class="links-of-author">
-              {% for link in config.extra.author_links %}
-              <a href="{{ link.url }}" title="{{ link.name }}" class="author-link">
-                <i class="{{ link.favicon }}"></i>
-              </a>
-              {% endfor %}
-            </div>
-            <div class="links-of-blogroll">
-              {% for link in config.extra.links %}
-              <a href="{{ link.url }}">{{ link.name }}</a>
-              {% endfor %}
-            </div>
+          <div class="sidebar-post-overview">
+            {% if categories %}
+            <a class="sidebar-post-overview-item" href="{{ config.base_url }}/categories">
+              <span class="sidebar-post-overview-amount unselectable">{{ categories.items | length }}</span>
+              <span class="sidebar-post-overview-type unselectable">
+                <i class="fa-solid fa-book"></i>
+                categories
+              </span>
+            </a>
+            {% endif %}
+            {% if tags %}
+            <a class="sidebar-post-overview-item" href="{{ config.base_url }}/tags">
+              <span class="sidebar-post-overview-amount unselectable">{{ tags.items | length }}</span>
+              <span class="sidebar-post-overview-type unselectable">
+                <i class="fa-solid fa-tags"></i>
+                tags
+              </span>
+            </a>
+            {% endif %}
+            {% if archives %}
+            <a class="sidebar-post-overview-item" href="{{ config.base_url }}/archives">
+              <span class="sidebar-post-overview-amount unselectable">{{ archives.items[0].pages | length }}</span>
+              <span class="sidebar-post-overview-type unselectable">
+                <i class="fa-solid fa-inbox"></i>
+                posts
+              </span>
+            </a>
+            {% endif %}
           </div>
-          <div class="sidebar-toc">
-          {% if page.toc %}
+          <div class="feed-link">
+            {% if config.generate_feed %}
+            <a rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+              RSS
+            </a>
+            {% endif %}
+          </div>
+          <div class="links-of-author">
+            {% for link in config.extra.author_links %}
+            <a href="{{ link.url }}" title="{{ link.name }}" class="author-link">
+              <i class="{{ link.favicon }}"></i>
+            </a>
+            {% endfor %}
+          </div>
+          <div class="links-of-blogroll">
+            {% for link in config.extra.links %}
+            <a href="{{ link.url }}">{{ link.name }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="sidebar-toc">
+        {% if page.toc %}
+        <ul>
+        {% for h1 in page.toc %}
+        <li>
+        <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+          {% if h1.children %}
           <ul>
-          {% for h1 in page.toc %}
+          {% for h2 in h1.children %}
           <li>
-          <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
-            {% if h1.children %}
+          <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+            {% if h2.children %}
             <ul>
-            {% for h2 in h1.children %}
+            {% for h3 in h2.children %}
             <li>
-            <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
-              {% if h2.children %}
+            <a href="{{ h3.permalink | safe }}">{{ h3.title }}</a>
+              {% if h3.children %}
               <ul>
-              {% for h3 in h2.children %}
+              {% for h4 in h3.children %}
               <li>
-              <a href="{{ h3.permalink | safe }}">{{ h3.title }}</a>
-                {% if h3.children %}
+              <a href="{{ h4.permalink | safe }}">{{ h4.title }}</a>
+                {% if h4.children %}
                 <ul>
-                {% for h4 in h3.children %}
+                {% for h5 in h4.children %}
                 <li>
-                <a href="{{ h4.permalink | safe }}">{{ h4.title }}</a>
-                  {% if h4.children %}
+                <a href="{{ h5.permalink | safe }}">{{ h5.title }}</a>
+                  {% if h5.children %}
                   <ul>
-                  {% for h5 in h4.children %}
+                  {% for h6 in h5.children %}
                   <li>
-                  <a href="{{ h5.permalink | safe }}">{{ h5.title }}</a>
-                    {% if h5.children %}
-                    <ul>
-                    {% for h6 in h5.children %}
-                    <li>
-                    <a href="{{ h6.permalink | safe }}">{{ h6.title }}</a>
-                    </li>
-                    {% endfor %}
-                    </ul>
-                    {% endif %}
+                  <a href="{{ h6.permalink | safe }}">{{ h6.title }}</a>
                   </li>
                   {% endfor %}
                   </ul>
@@ -270,24 +280,14 @@
           {% endfor %}
           </ul>
           {% endif %}
-          </div>
-        </aside>
-        {% endblock sidebar %}
+        </li>
+        {% endfor %}
+        </ul>
         {% endif %}
-
-      </main>
-
-      {% block footer %}
-      <footer name="footer">
-        <div class="copyright">
-          <span item="copyrightYear">© {{ config.extra.copyright_year }}</span>
-          <span class="author">{{ config.extra.author }}</span>
         </div>
-        <div class="powered-by">
-          Powered by <a href="https://www.getzola.org/">Zola</a> Theme <a href="https://github.com/CSUwangj/DogFood">DogFood</a>
-        </div>
-      </footer>
-      {% endblock %}
+      </aside>
+      {% endblock sidebar %}
+      {% endif %}
     </body>
 
 </html>

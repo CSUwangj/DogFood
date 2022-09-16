@@ -48,5 +48,5 @@ copyright_year = "2018-2022"
 avatar = "img/avatar.png"
 # used for $$$$ quoted math formula
 katex_enabled = true
-# "left" or "right" or "none"
-sidebar = "left"
+# "left_sidebar" or "right_sidebar" or "no_sidebar"
+sidebar = "right_sidebar"

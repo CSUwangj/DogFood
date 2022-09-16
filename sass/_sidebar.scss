@@ -99,12 +99,16 @@ button.sidebar-toggle {
   }
 }
 
-.left-sidebar-toggle {
+.left_sidebar-sidebar-toggle {
   left: 30px;
 }
 
-.right-sidebar-toggle {
+.right_sidebar-sidebar-toggle {
   right: 30px;
+}
+
+.no_sidebar-sidebar-toggle {
+  display: none;
 }
 
 .sidebar-post-overview {
@@ -129,4 +133,33 @@ a.sidebar-post-overview-item {
 }
 .sidebar-post-overview-type {
   font-size: 11px;
+}
+
+footer.with_sidebar, header.with_sidebar {
+  width: calc(100% - 250px);
+}
+
+footer.with_sidebar.left_sidebar, header.with_sidebar.left_sidebar, main.with_sidebar.left_sidebar {
+  margin-left: 250px;
+}
+
+main.with_sidebar {
+  width: calc(100% - 282px);
+}
+
+
+aside.sidebar {
+  width: 0;
+}
+
+aside.sidebar.with_sidebar {
+  width: 250px;
+}
+
+aside.left_sidebar {
+  left: 0;
+}
+
+aside.right_sidebar {
+  right: 0;
 }
