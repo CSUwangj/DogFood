@@ -1,0 +1,27 @@
+name: build gh-page
+
+on:
+  [ pull_request, push, workflow_dispatch ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+      - name: Build
+        uses: shalzz/zola-deploy-action@v0.16.1
+        env:
+          BUILD_THEMES: false
+          BUILD_FLAGS: -o docs
+          BUILD_ONLY: true
+          TOKEN: ${{ secrets.TOKEN }}
+      - name: Deploy
+        uses: demurgos/ga-deploy-git@v1
+        with:
+          accessToken: ${{ secrets.TOKEN }}
+          srcDir: docs
+          destBranch: docs
