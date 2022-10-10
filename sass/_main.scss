@@ -132,8 +132,8 @@ main {
       font-size: 30px;
     }  
     img{
-      height: 100%;
-      width: 100%;
+      max-height: 100%;
+      max-width: 100%;
       object-fit: contain;
     }
     pre, .highlight {
