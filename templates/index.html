@@ -22,8 +22,15 @@
       {{macros::katex_load()}}
       {% block custom_js %}{% endblock custom_js %}
 
-      {% if config.generate_feed %}
-      <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+
+      {% if config.generate_feeds %}
+        {% for feed_filename in config.feed_filenames %} 
+          {% if feed_filename == "atom.xml" %}
+            <link rel="alternate" type="application/atom+xml" title="Feed (Atom)" href="{{ get_url(path=feed_filename) | safe }}">
+          {% elif feed_filename == "rss.xml" %}
+            <link rel="alternate" type="application/rss+xml" title="Feed (RSS)" href="{{ get_url(path=feed_filename) | safe }}">
+          {% endif %}
+        {% endfor %}
       {% endif %}
       {% if config.extra.favicon %}
       <link rel="icon" type="image/x-icon" href="{{ get_url(path=config.extra.favicon) }}">
@@ -214,10 +221,18 @@
             {% endif %}
           </div>
           <div class="feed-link">
-            {% if config.generate_feed %}
-            <a rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
-              RSS
-            </a>
+            {% if config.generate_feeds %}
+              {% for feed_filename in config.feed_filenames %} 
+                {% if feed_filename == "atom.xml" %}
+                  <a rel="alternate" type="application/atom+xml" title="Feed (Atom)" href="{{ get_url(path=feed_filename) | safe }}">
+                    Feed (Atom)
+                  </a>
+                {% elif feed_filename == "rss.xml" %}
+                  <a rel="alternate" type="application/rss+xml" title="Feed (RSS)" href="{{ get_url(path=feed_filename) | safe }}">
+                    Feed (RSS)
+                  </a>
+                {% endif %}
+              {% endfor %}
             {% endif %}
           </div>
           <div class="links-of-author">
